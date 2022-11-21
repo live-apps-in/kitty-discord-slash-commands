@@ -5,29 +5,29 @@ const { QueryType } = require('discord-player');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('play')
-		.setDescription('loads songs from youtube')
+		.setDescription('Plays songs from YouTube')
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName('search')
-				.setDescription('Searches for sogn based on provided keywords')
+				.setDescription('Searches songs from YouTube')
 				.addStringOption((option) =>
-					option.setName('searchterms').setDescription('the search keywords').setRequired(true)
+					option.setName('searchterms').setDescription('song name').setRequired(true)
 				)
 		)
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName('song')
-				.setDescription('Loads a single song from a url')
+				.setDescription('Loads a single song from a YouTube URL')
 				.addStringOption((option) => option.setName('url').setDescription('the song\'s url').setRequired(true))
 		)
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName('playlist')
-				.setDescription('Loads a playlist of songs from a url')
+				.setDescription('Loads a playlist of songs from a YouTube URL')
 				.addStringOption((option) => option.setName('url').setDescription('the playlist\'s url').setRequired(true))
 		),
 	run: async ({ client, interaction }) => {
-		if (!interaction.member.voice.channel) return interaction.editReply('You need to be in a VC to use this command');
+		if (!interaction.member.voice.channel) return interaction.editReply('You need to be in a VC to use ask kitty chan to sing!');
 
 		const queue = await client.player.createQueue(interaction.guild);
 		if (!queue.connection) await queue.connect(interaction.member.voice.channel);
@@ -48,7 +48,7 @@ module.exports = {
 			embed
 				.setDescription(`**[${song.title}](${song.url})** has been added to the Queue`)
 				.setThumbnail(song.thumbnail)
-				.setFooter({ text: `Duration: ${song.duration}`});
+				.setFooter({ text: `Duration: ${song.duration}  -  kitty chan is singing`});
 
 		} else if (interaction.options.getSubcommand() === 'playlist') {
 			let url = interaction.options.getString('url');
