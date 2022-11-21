@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Install required packages') {
             steps {
-                echo 'npm i'
+                sh 'docker build -t kitty-slash-commands .'
             }
         }
         stage('Stop old container') {
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Start New Container') {
             steps {
-                sh 'docker run -p 5002:5000 -d --name kitty-chan kitty-chan'
+                sh 'docker run -p 5002:5000 -d --name kitty-slash-commands kitty-slash-commands'
             }
         }
     }
