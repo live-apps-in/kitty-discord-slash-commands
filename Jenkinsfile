@@ -4,17 +4,12 @@ pipeline {
     stages {
         stage('Install required packages') {
             steps {
-                sh 'docker build -t kitty-slash-commands .'
+                sh 'npm i'
             }
         }
-        stage('Stop old container') {
+        stage('Restart PM2 Instance') {
             steps {
-                sh 'docker rm kitty-slash-commands --force'
-            }
-        }
-        stage('Start New Container') {
-            steps {
-                sh 'docker run -p 5002:5000 -d --name kitty-slash-commands kitty-slash-commands'
+                sh 'pm2 restart all'
             }
         }
     }
