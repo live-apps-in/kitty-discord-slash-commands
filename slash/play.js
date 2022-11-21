@@ -80,7 +80,7 @@ module.exports = {
 			embed
 				.setDescription(`**[${song.title}](${song.url})** has been added to the Queue`)
 				.setThumbnail(song.thumbnail)
-				.setFooter({ text: `Duration: ${song.duration}`});
+				.setFooter({ text: `Duration: ${song.duration}  -  kitty chan is singing`});
 		}
 		if (!queue.playing) await queue.play();
 		await interaction.editReply({
