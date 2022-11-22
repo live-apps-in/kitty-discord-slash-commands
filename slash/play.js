@@ -9,9 +9,9 @@ module.exports = {
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName('search')
-				.setDescription('Searches songs from YouTube')
+				.setDescription('Search songs from YouTube')
 				.addStringOption((option) =>
-					option.setName('searchterms').setDescription('song name').setRequired(true)
+					option.setName('song name').setDescription('song name').setRequired(true)
 				)
 		)
 		.addSubcommand((subcommand) =>
@@ -54,7 +54,7 @@ module.exports = {
 			let url = interaction.options.getString('url');
 			const result = await client.player.search(url, {
 				requestedBy: interaction.user,
-				searchEngine: QueryType.YOUTUBE_PLAYLIST
+				searchEngine: QueryType.SPOTIFY_PLAYLIST
 			});
 
 			if (result.tracks.length === 0)
