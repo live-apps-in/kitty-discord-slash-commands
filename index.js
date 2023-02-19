@@ -39,15 +39,15 @@ const rest = new REST({ version: '10' }).setToken(
 );
    
 console.log('Deploying slash commands');
-rest.put(Routes.applicationCommands(process.env.KITTY_CHAN_ID), { body: commands })
-	.then(() => {
-		console.log('Successfully loaded');
-	})
-	.catch((err) => {
-		if (err){
-			console.log(err);
-		}
-	});
+// rest.put(Routes.applicationCommands(process.env.KITTY_CHAN_ID), { body: commands })
+// 	.then(() => {
+// 		console.log('Successfully loaded');
+// 	})
+// 	.catch((err) => {
+// 		if (err){
+// 			console.log(err);
+// 		}
+// 	});
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}`);
