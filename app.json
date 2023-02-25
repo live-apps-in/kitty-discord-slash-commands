@@ -1,0 +1,7 @@
+{
+  "name": "kitty chan",
+  "description": "Music Streaming Bot",
+  "repository": "https://github.com/live-apps-in/kitty-discord-slash-commands",
+  "logo": "https://i.imgur.com/JFxgbWH.png",
+  "keywords": ["discord", "discordjs", "typescript", "music", "bot"]
+}
