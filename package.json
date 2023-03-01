@@ -5,7 +5,7 @@
   "main": "index.ts",
   "author": "Jaga",
   "private": true,
-  "homepage": "https://jagalive.in",
+  "homepage": "https://jaga.live",
   "repository": "https://github.com/live-apps-in/kitty-discord-slash-commands",
   "engines": {
     "node": ">=16.11.0"
