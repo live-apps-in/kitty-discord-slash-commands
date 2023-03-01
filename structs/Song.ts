@@ -65,7 +65,7 @@ export class Song {
     const source = this.url.includes("youtube") ? "youtube" : "soundcloud";
 
     if (source === "youtube") {
-      stream = await ytdl(this.url, { quality: "highestaudio", highWaterMark: 1 << 25 });
+      stream = await ytdl(this.url, {filter: 'audioonly', quality: "lowestaudio", highWaterMark: 1 << 20 });
     }
 
     if (!stream) return;
